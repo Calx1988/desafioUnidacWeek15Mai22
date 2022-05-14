@@ -22,7 +22,7 @@ public class Employee {
 	public Employee() {
 	}
 
-	public Employee(Long id, String name, String cpf, List<Recipe> listRecipe) {
+	public Employee(Long id, String name, String cpf) {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
