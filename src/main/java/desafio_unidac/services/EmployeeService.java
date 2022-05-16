@@ -21,5 +21,9 @@ public class EmployeeService {
 	public Employee addEmployee(Employee e) {
 		return employeeRepository.insert(e);
 	}
+	
+	public void deleteEmployee(String id) {
+		employeeRepository.deleteById(id);
+	}
 
 }

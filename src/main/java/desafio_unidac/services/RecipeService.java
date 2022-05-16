@@ -22,5 +22,9 @@ public class RecipeService {
 	public Recipe addRecipe(Recipe r) {
 		return recipeRepository.insert(r);
 	}
+	
+	public void deleteRecipe(String id) {
+		recipeRepository.deleteById(id);
+	}
 
 }
