@@ -1,25 +1,30 @@
 package desafio_unidac.controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import desafio_unidac.entities.Employee;
 import desafio_unidac.repositories.EmployeeRepository;
 
-@Controller
+@RestController
+@RequestMapping(value = "/employees")
 public class EmployeeController {
 	
 	private EmployeeRepository employeeRepository;
-
-	public EmployeeController() {
-	}
-
-	public EmployeeController(EmployeeRepository employeeRepository) {
-		this.employeeRepository = employeeRepository;
-	}
 	
-	public String employees(Model model) {
-		model.addAttribute("listEmployee", employeeRepository.findAll());
-		return "employee/employeeIndex";
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<Employee>> findAll(){
+		Employee e1 = new Employee(null, "Cássio Corrêa", "12345678901");
+		Employee e2 = new Employee(null, "Natalia Corrêa", "23456789012");
+		List<Employee> list = new ArrayList<>();
+		list.addAll(Arrays.asList(e1,e2));
+		return ResponseEntity.ok().body(list);
 	}
 	
 	
