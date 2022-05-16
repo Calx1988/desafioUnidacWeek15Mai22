@@ -17,5 +17,9 @@ public class EmployeeService {
 	public List<Employee> findAll(){
 		return employeeRepository.findAll();
 	}
+	
+	public Employee addEmployee(Employee e) {
+		return employeeRepository.insert(e);
+	}
 
 }

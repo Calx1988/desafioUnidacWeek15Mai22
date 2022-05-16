@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import desafio_unidac.entities.Recipe;
 
 @Repository
-public interface RecipeRepository extends MongoRepository<Recipe, Long>{
+public interface RecipeRepository extends MongoRepository<Recipe, String>{
 	
 
 }

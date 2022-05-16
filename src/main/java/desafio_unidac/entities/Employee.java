@@ -10,7 +10,7 @@ import javax.persistence.Transient;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "employee")
+@Document(collection = "employees")
 public class Employee implements Serializable{
 	private static final long serialVersionUID = 1L;
 	

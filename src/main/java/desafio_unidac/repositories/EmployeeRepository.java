@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import desafio_unidac.entities.Employee;
 
 @Repository
-public interface EmployeeRepository  extends MongoRepository<Employee, Long>{
+public interface EmployeeRepository  extends MongoRepository<Employee, String>{
 
 }
