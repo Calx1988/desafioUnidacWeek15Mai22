@@ -1,25 +1,27 @@
 package desafio_unidac.controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import java.util.List;
 
-import desafio_unidac.repositories.RecipeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import desafio_unidac.entities.Recipe;
+import desafio_unidac.services.RecipeService;
+
+@RestController
+@RequestMapping(value="/recipes")
 public class RecipeController {
 	
-	private RecipeRepository recipeRepository;
-
-	public RecipeController() {
-	}
-
-	public RecipeController(RecipeRepository recipeRepository) {
-		this.recipeRepository = recipeRepository;
-	}
+	@Autowired
+	private RecipeService recipeService;
 	
-	public String employees(Model model) {
-		model.addAttribute("listRecipe", recipeRepository.findAll());
-		return "recipe/recipeIndex";
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<Recipe>> findAll(){
+		List<Recipe> list = recipeService.findAll();
+		return ResponseEntity.ok().body(list);
 	}
 	
 	

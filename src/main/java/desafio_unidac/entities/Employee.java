@@ -5,22 +5,17 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "employee")
 public class Employee implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private String id;
 	private String name;
 	private String cpf;
 	
@@ -30,17 +25,17 @@ public class Employee implements Serializable{
 	public Employee() {
 	}
 
-	public Employee(Long id, String name, String cpf) {
+	public Employee(String id, String name, String cpf) {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -80,10 +75,4 @@ public class Employee implements Serializable{
 		Employee other = (Employee) obj;
 		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id);
 	}
-	
-	
-	
-	
-	
-
 }

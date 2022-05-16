@@ -3,36 +3,31 @@ package desafio_unidac.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="recipe")
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "recipes")
 public class Recipe implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private String id;
 	private String name;
 	
 	public Recipe() {
 	}
 
-	public Recipe(Long id, String name) {
+	public Recipe(String id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -60,13 +55,4 @@ public class Recipe implements Serializable{
 		Recipe other = (Recipe) obj;
 		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

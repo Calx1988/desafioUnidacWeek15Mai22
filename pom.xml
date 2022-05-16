@@ -12,7 +12,7 @@
 	<artifactId>desafio_unidac</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>desafio_unidac</name>
-	<description>Restful w/ MongoDB Java Project from the Udemy Course prof Nelio Alves</description>
+	<description>Restful w/ MongoDB Java Project from Desafio Unidac</description>
 	<properties>
 		<java.version>18</java.version>
 	</properties>
@@ -47,6 +47,12 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		
 		
 	</dependencies>
 
